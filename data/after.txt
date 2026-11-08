@@ -1,0 +1,22 @@
+$ pnpm clickhouse:migrate
+==> applying local ClickHouse migration: 001_project_id_skip_index.sql
+==> applying local ClickHouse migration: 002_issue_activity_daily.sql
+==> applying local ClickHouse migration: 003_events_per_minute.sql
+==> applying local ClickHouse migration: 004_otel_exceptions.sql
+==> applying local ClickHouse migration: 005_otel_traces_summary.sql
+==> applying local ClickHouse migration: 006_otel_traces_rollup_ttl.sql
+==> applying local ClickHouse migration: 007_metric_names_per_hour.sql
+==> applying local ClickHouse migration: 008_metric_usage_projection.sql
+==> applying local ClickHouse migration: 008_otel_issue_candidates.sql
+==> applying local ClickHouse migration: 009_materialized_project_filters.sql
+$ pnpm clickhouse:migrate   # again: must be a no-op
+(exit 0)
+$ send one error span + one ERROR log to :4000
+/v1/traces 200
+/v1/logs 200
+spans stored: 1
+logs stored:  1
+issues:       2
+incidents:    1
+worker UNKNOWN_TABLE lines in about 1 min: 0
+issue title:  TypeError: priceCart@src/cart.ts

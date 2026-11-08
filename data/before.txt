@@ -1,0 +1,8 @@
+$ send one error span + one ERROR log to :4000
+/v1/traces 200
+/v1/logs 200
+spans stored: 1
+logs stored:  1
+issues:       0
+incidents:    0
+worker UNKNOWN_TABLE lines in about 1 min: 34

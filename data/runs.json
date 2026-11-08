@@ -1,0 +1,4 @@
+{
+ "before": "$ send one error span + one ERROR log to :4000\n/v1/traces 200\n/v1/logs 200\nspans stored: 1\nlogs stored:  1\nissues:       0\nincidents:    0\nworker UNKNOWN_TABLE lines in about 1 min: 34",
+ "after": "$ pnpm clickhouse:migrate\n# 10 \"==> applying\" lines collapsed here; full output in data/after.txt\n$ pnpm clickhouse:migrate   # again: must be a no-op\n(exit 0)\n$ send one error span + one ERROR log to :4000\n/v1/traces 200\n/v1/logs 200\nspans stored: 1\nlogs stored:  1\nissues:       2\nincidents:    1\nworker UNKNOWN_TABLE lines in about 1 min: 0\nissue title:  TypeError: priceCart@src/cart.ts"
+}
